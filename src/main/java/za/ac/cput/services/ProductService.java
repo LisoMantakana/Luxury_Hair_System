@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 import za.ac.cput.domain.Product;
 import za.ac.cput.repository.ProductRepository;
 
+import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -23,8 +24,8 @@ public class ProductService implements IProductService {
     }
 
     @Override
-    public Set<Product> getall() {
-        return productRepository.findAll().stream().collect(Collectors.toSet());
+    public List<Product> getall() {
+        return productRepository.findAll();
     }
 
     @Override
