@@ -5,7 +5,6 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import za.ac.cput.domain.Product;
-import za.ac.cput.factory.CustomerFactory;
 import za.ac.cput.factory.ProductFactory;
 
 import static org.junit.jupiter.api.Assertions.*;

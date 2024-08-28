@@ -16,6 +16,7 @@ public class Product {
     private String hairColor;       //red? black? orange?
     private boolean hairStock;      //available or not??
     private double hairPrice;
+    private String image;
 
     protected Product() {
 
@@ -29,6 +30,7 @@ public class Product {
         this.hairColor = builder.hairColor;
         this.hairStock = builder.hairStock;
         this.hairPrice = builder.hairPrice;
+        this.image = builder.image;
     }
 
     public String getProductId() {
@@ -58,18 +60,22 @@ public class Product {
     public double getHairPrice() {
         return hairPrice;
     }
+    public String getImage() {
+        return image;
+    }
+
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Product product = (Product) o;
-        return hairStock == product.hairStock && Double.compare(hairPrice, product.hairPrice) == 0 && Objects.equals(productId, product.productId) && Objects.equals(hairTexture, product.hairTexture) && Objects.equals(hairStyle, product.hairStyle) && Objects.equals(hairSize, product.hairSize) && Objects.equals(hairColor, product.hairColor);
+        return hairStock == product.hairStock && Double.compare(hairPrice, product.hairPrice) == 0 && Objects.equals(productId, product.productId) && Objects.equals(hairTexture, product.hairTexture) && Objects.equals(hairStyle, product.hairStyle) && Objects.equals(hairSize, product.hairSize) && Objects.equals(hairColor, product.hairColor) && Objects.equals(image, product.image);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(productId, hairTexture, hairStyle, hairSize, hairColor, hairStock, hairPrice);
+        return Objects.hash(productId, hairTexture, hairStyle, hairSize, hairColor, hairStock, hairPrice, image);
     }
 
     @Override
@@ -82,6 +88,7 @@ public class Product {
                 ", hairColor='" + hairColor + '\'' +
                 ", hairStock=" + hairStock +
                 ", hairPrice=" + hairPrice +
+                ", image='" + image + '\'' +
                 '}';
     }
 
@@ -94,6 +101,7 @@ public class Product {
         private String hairColor;
         private boolean hairStock;
         private double hairPrice;
+        private String image;
 
         public Builder setProductId(String productId) {
             this.productId = productId;
@@ -130,6 +138,10 @@ public class Product {
             return this;
         }
 
+        public void setImage(String image) {
+            this.image = image;
+        }
+
         public Builder copy(Product product) {
             this.productId = product.productId;
             this.hairTexture = product.hairTexture;
@@ -138,6 +150,7 @@ public class Product {
             this.hairColor = product.hairColor;
             this.hairStock = product.hairStock;
             this.hairPrice = product.hairPrice;
+            this.image = product.image;
             return this;
         }
 

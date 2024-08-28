@@ -1,7 +1,6 @@
 package za.ac.cput.services;
 
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import za.ac.cput.domain.Product;
@@ -9,7 +8,7 @@ import za.ac.cput.factory.CustomerFactory;
 import za.ac.cput.factory.ProductFactory;
 
 import static org.junit.jupiter.api.Assertions.*;
-
+@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 @SpringBootTest
 class ProductServiceTest {
 
@@ -29,13 +28,15 @@ class ProductServiceTest {
 
 
     @Test
+    @Order(1)
     void create() {
-        Product product1 = productService.create(product);
-        assertNotNull(product1);
-        System.out.println(product1);
+        Product create = productService.create(product);
+        assertNotNull(create);
+        System.out.println(create);
     }
 
     @Test
+    @Order(2)
     void read() {
         Product read = productService.read(product.getProductId());
         assertNotNull(read);
@@ -43,6 +44,7 @@ class ProductServiceTest {
     }
 
     @Test
+    @Order(3)
     void update() {
         Product updateProduct = new Product.Builder().copy(product).setProductId("B8855").build();
         Product updated = productService.update(updateProduct);
@@ -51,6 +53,7 @@ class ProductServiceTest {
     }
 
     @Test
+    @Order(4)
     void getall() {
         System.out.println(productService.getall());
 

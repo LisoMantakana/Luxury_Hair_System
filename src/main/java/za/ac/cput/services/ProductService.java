@@ -6,8 +6,7 @@ import za.ac.cput.domain.Product;
 import za.ac.cput.repository.ProductRepository;
 
 import java.util.List;
-import java.util.Set;
-import java.util.stream.Collectors;
+
 
 @Service
 public class ProductService implements IProductService {
@@ -41,5 +40,6 @@ public class ProductService implements IProductService {
     @Override
     public Product update(Product product) {
         return productRepository.save(product);
+
     }
 }

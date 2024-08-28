@@ -10,4 +10,5 @@ import java.util.Set;
 public interface IProductService extends IService<Product, String> {
 
     List<Product> getall();
+
 }
