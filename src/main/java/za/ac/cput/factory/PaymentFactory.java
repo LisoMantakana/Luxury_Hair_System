@@ -5,19 +5,24 @@ import za.ac.cput.util.Helper;
 
 public class PaymentFactory {
 
-    public static Payment buildPayment(String paymentID, String orderID, String Amount, String paymentMethod,
-                                       String transactionStatus, String transactionDate) {
-        if (Helper.isNullOrEmpty(paymentID) || Helper.isNullOrEmpty(orderID) || Helper.isNullOrEmpty(Amount)
-                || Helper.isNullOrEmpty(paymentMethod) || Helper.isNullOrEmpty(transactionStatus) || Helper.isNullOrEmpty(transactionDate))
-            return null;
+    public static Payment buildPayment(String cardNumber, String name, String email, String cardType, String expiryDate, String cvv, String paymentMethod, Double totalAmount) {
+        if (Helper.isNullOrEmpty(cardNumber) || Helper.isNullOrEmpty(name) || Helper.isNullOrEmpty(email)
+                || Helper.isNullOrEmpty(cardType) || Helper.isNullOrEmpty(expiryDate) || Helper.isNullOrEmpty(cvv) || Helper.isNullOrEmpty(paymentMethod) || totalAmount == null) {
+            throw new IllegalArgumentException("One or more parameters are null or empty");
 
-           return new Payment.Builder().setPaymentID(paymentID)
-                   .setOrderID(orderID)
-                   .setAmount(Amount)
-                   .setPaymentMethod(paymentMethod)
-                   .setTransationStatus(transactionStatus)
-                   .setTransactionDate(transactionDate)
-                   .build();
+        }
+
+
+
+        return new Payment.Builder().setCardNumber(cardNumber)
+                .setName(name)
+                .setEmail(email)
+                .setCardType(cardType)
+                .setExpiryDate(expiryDate)
+                .setCvv(cvv)
+                .setPaymentMethod(paymentMethod)
+                .setTotalAmount(totalAmount)
+                .build;
+
     }
-
 }

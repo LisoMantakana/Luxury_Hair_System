@@ -4,6 +4,6 @@ import org.springframework.stereotype.Repository;
 import za.ac.cput.domain.Payment;
 @Repository
 
-public interface PaymentRepository extends JpaRepository<Payment, Long> {
-    Payment findByPaymentID(long paymentID);
+public interface PaymentRepository extends JpaRepository<Payment, String> {
+    Payment findByCardNumber(String cardNumber);
 }
