@@ -16,7 +16,7 @@ public class InventoryController {
 
     @PostMapping("/create")
     public Inventory create(@RequestBody Inventory inv){
-        return InventoryService.create(inv);
+        return inventoryService.create(inv);
     }
 
     @GetMapping("/read/{invId}")
